@@ -69,3 +69,6 @@ ON Orders.CustomerID = Customers.CustomerID
 order by city
 
 ## delete all users that have no orders. Should delete 17 (or 18 if you haven't deleted the record added) records.
+
+DELETE FROM customers
+where not exists(select null from orders where orders.customerid = customers.customerid)
